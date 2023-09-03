@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button-element"> Click me </button>
+</body>
+
+</html>
+
+<script>
+
+    function ClickMe() {
+        this.element = "button"
+    }
+
+    const button = new ClickMe();
+
+
+    const ClickMeArrow = () => {
+        this.elementName = "button"
+    }
+
+    const button2 = ClickMeArrow()
+
+
+    document.getElementById("button-element").addEventListener("click", function () {
+        console.log("who is this? FUNCTION ES5")
+        console.log(this)
+    })
+
+    document.getElementById("button-element").addEventListener("click", () => {
+        console.log("who is this? ARROW FUNCTIOn")
+        console.log(this)
+    })
+
+
+</script>
