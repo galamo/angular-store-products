@@ -370,7 +370,19 @@
         Loading.....
     </div>
     <div *ngIf="!isLoading">
-        <button *ngFor="let item of this.products" mat-raised-button color="primary">{{item.title}}</button>
+        <button *ngFor="let item of this.products" (click)="getProductsByTitle(item.title)" mat-raised-button
+            color="primary">{{item.title}}</button>
+    </div>
+    <div>
+        {{dataResult}}
+    </div>
+    <div>
+
+
+        <mat-label>Search Product - you are searching for: {{searchText}}</mat-label>
+        <input [(ngModel)]="searchText" matInput placeholder="iphone" [value]="searchText">
+        <button mat-raised-button color="primary">Search</button>
+        <button mat-raised-button (click)="searchText = ''" color="warn">Clear</button>
     </div>
 
 

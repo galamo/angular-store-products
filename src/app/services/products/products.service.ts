@@ -23,5 +23,11 @@ export class ProductsService {
         return axios.get(this.url)
     }
 
+    getProductsByTitleAxios(pTitle: string): Promise<any> {
+        // use this paramter...
+        return axios.get(this.url + `/search?q=${pTitle}`)
+    }
+
+
 
 }

@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http"
+import { HttpClient, HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     declarations: [
@@ -22,7 +24,9 @@ import { MatSelectModule } from '@angular/material/select';
         MatCheckboxModule,
         MatSelectModule,
         MatButtonModule,
-        HttpClientModule
+        FormsModule,
+        HttpClientModule,
+        MatInputModule
     ],
     providers: [],
     bootstrap: [AppComponent]
