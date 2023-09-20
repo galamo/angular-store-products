@@ -351,8 +351,7 @@
             </g>
         </svg>
 
-        <span>{{ title }} app is running!</span>
-
+        <app-current-product></app-current-product>
         <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
             viewBox="0 0 516.119 1083.632">
             <title>Rocket Ship Smoke</title>
@@ -382,7 +381,7 @@
         <mat-label>Search Product - you are searching for: {{searchText}}</mat-label>
         <input [(ngModel)]="searchText" matInput placeholder="iphone" [value]="searchText">
         <button mat-raised-button color="primary">Search</button>
-        <button mat-raised-button (click)="searchText = ''" color="warn">Clear</button>
+        <button mat-raised-button (click)="clearText()" color="warn">Clear</button>
     </div>
 
 

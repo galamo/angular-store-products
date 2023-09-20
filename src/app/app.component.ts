@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from './services/products/products.service';
+import { Product, ProductsService } from './services/products/products.service';
+import { AxiosResponse } from 'axios';
 
 @Component({
     selector: 'app-root',
@@ -8,17 +9,12 @@ import { ProductsService } from './services/products/products.service';
 })
 export class AppComponent implements OnInit {
     title = 'store';
-    public products: Array<any>
-    public isLoading: boolean;
-    public numberOfProducts: number
-    public dataResult: string // dont do this!!!
-    public searchText: string
+    public products: Array<any> = [];
+    public isLoading: boolean = true
+    public numberOfProducts: number = 0
+    public dataResult: string = "" // dont do this
+    public searchText: string = ""
     constructor(private productsService: ProductsService) {
-        this.products = []
-        this.isLoading = true
-        this.numberOfProducts = 0
-        this.dataResult = ""
-        this.searchText = ""
     }
 
     getData() {
@@ -35,7 +31,21 @@ export class AppComponent implements OnInit {
     }
 
     async getProductsByTitle(title: string) {
-        const result = await this.productsService.getProductsByTitleAxios(title)
-        this.dataResult = JSON.stringify(result.data)
+        console.log("title...")
+        const result: AxiosResponse = await this.productsService.getProductsByTitleAxios(title)
+        this.productsService.setCurrentProduct(result?.data?.products[0] as Product)
+    }
+
+    clearText() {
+        this.searchText = ""
     }
 }
+
+
+class Person {
+    constructor(public userName: string) {
+    }
+}
+
+const person = new Person("rafi@gmail.com")
+console.log(person)

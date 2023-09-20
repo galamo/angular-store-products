@@ -11,11 +11,13 @@ import { FormsModule } from '@angular/forms';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { CurrentProductComponent } from './current-product/current-product.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        ProductComponent
+        ProductComponent,
+        CurrentProductComponent
     ],
     imports: [
         BrowserModule,
